@@ -1,0 +1,95 @@
+[
+  {
+    "question_id": 1,
+    "question": "What is the primary purpose for your investment decision ?",
+    "choices": [
+      { "id": 1, "text": "Safety First - I want to preserve Capital" },
+      { "id": 2, "text": "Regular Income with regular positive return" },
+      { "id": 3, "text": "Regular Income and marginal capital appreciation" },
+      { "id": 4, "text": "My sole objective is maximum growth" }
+    ]
+  },
+
+  {
+    "question_id": 2,
+    "question": "The value of investments can decline in the market downturn. How much your investment could fall before you feel very uncomfortable.",
+    "choices": [
+      { "id": 1, "text": "None at all" },
+      { "id": 2, "text": "10% or Less" },
+      { "id": 3, "text": "About 25 %" },
+      { "id": 4, "text": "40 % and above" }
+    ]
+  },
+  {
+    "question_id": 3,
+    "question": "When making an investment, I plan to keep the money invested for?",
+    "choices": [
+      { "id": 1, "text": "1-3 years" },
+      { "id": 2, "text": "3-5 years" },
+      { "id": 3, "text": "5-7 years" },
+      { "id": 4, "text": "More than 8 years" }
+    ]
+  },
+  {
+    "question_id": 4,
+    "question": "If you owned an investment that fell by 30% over a period of 3 months, what would you do?",
+    "choices": [
+      { "id": 1, "text": "Sell all of the remaining investment." },
+      { "id": 2, "text": "Sell the portion of the remaining investment." },
+      { "id": 3, "text": "Hold onto the investment and sell nothing." },
+      { "id": 4, "text": "Buy more of the investment." }
+    ]
+  },
+  {
+    "question_id": 5,
+    "question": "When it comes to an investment in stocks, bonds or mutual funds, I would describe myself as",
+    "choices": [
+      { "id": 1, "text": "Novice" },
+      { "id": 2, "text": "Beginner" },
+      { "id": 3, "text": "Good" },
+      { "id": 4, "text": "Excellent" },
+      { "id": 5, "text": "Very Excellent" }
+    ]
+  },
+  {
+    "question_id": 6,
+    "question": "Approximately what portion of your monthly net income goes towards saving (after paying all expenses and loan if any)?",
+    "choices": [
+      { "id": 1, "text": "None" },
+      { "id": 2, "text": "Less than 5%" },
+      { "id": 3, "text": "5 to 10%" },
+      { "id": 4, "text": "10 to 25%" },
+      { "id": 5, "text": "More than 25%" }
+    ]
+  },
+  {
+    "question_id": 7,
+    "question": "What is your age?",
+    "choices": [
+      { "id": 1, "text": "55 and above" },
+      { "id": 2, "text": "46 - 55" },
+      { "id": 3, "text": "36 - 45" },
+      { "id": 4, "text": "22 - 35" }
+    ]
+  },
+  {
+    "question_id": 8,
+    "question": "Annual Net Income",
+    "choices": [
+      { "id": 1, "text": "Less than 5 Lacs" },
+      { "id": 2, "text": "5-10 Lacs" },
+      { "id": 3, "text": "10-25 Lacs" },
+      { "id": 4, "text": "More than 25 Lacs" }
+    ]
+  },
+  {
+    "question_id": 9,
+    "question": "Would you need any loan to meet your life goals?",
+    "choices": [
+      { "id": 1, "text": "No" },
+      { "id": 2, "text": "Home Loan" },
+      { "id": 3, "text": "Personal Loan" },
+      { "id": 4, "text": "Car Loan" }
+    ]
+  }
+]

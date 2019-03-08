@@ -6,7 +6,19 @@ class Question extends React.Component {
   state = {
     questions: [],
     question_id: null,
-    choice: null
+    choice: null,
+    answers: {
+      0: null,
+      1: null,
+      2: null,
+      3: null,
+      4: null,
+      5: null,
+      6: null,
+      7: null,
+      8: null,
+      9: null
+    }
   };
 
   componentDidMount = () => {
@@ -22,41 +34,45 @@ class Question extends React.Component {
   };
 
   handleNextClick = e => {
-    window.scrollTo(0, 0);
+    // const  { questionNumber } =this.props.match.params.questionNumber;
+    // const {} = this.props
+    // const answers = {...this.state.answers, ...{ [questionNumber]:  }}
+    // this.setState({  })
+    // window.scrollTo(0, 0);
 
     //check the local staorage first time
-    if (localStorage.getItem("questions")) {
-      //set the state values here
-      let { choice } = this.state;
-      let question_id = this.props.match.params.questionNumber;
+    // if (localStorage.getItem("questions")) {
+    //   //set the state values here
+    //   let { choice } = this.state;
+    //   let question_id = this.props.match.params.questionNumber;
 
-      //get the data from the local storage
-      let localQuestionsArray = JSON.parse(localStorage.getItem("questions"));
+    //   //get the data from the local storage
+    //   let localQuestionsArray = JSON.parse(localStorage.getItem("questions"));
 
-      //updated the state value store in the variable
-      let updatedLocalQuestionsArray = [
-        ...localQuestionsArray,
-        { [question_id]: choice }
-      ];
+    //   //updated the state value store in the variable
+    //   let updatedLocalQuestionsArray = [
+    //     ...localQuestionsArray,
+    //     { [question_id]: choice }
+    //   ];
 
-      // set the question array
-      this.setState({ questions: updatedLocalQuestionsArray });
+    //   // set the question array
+    //   this.setState({ questions: updatedLocalQuestionsArray });
 
-      window.localStorage.setItem(
-        "questions",
-        JSON.stringify(updatedLocalQuestionsArray)
-      );
-    } else {
-      let { question_id, choice } = this.state;
-      let localQuestionsArray = [{ [question_id]: choice }];
-      this.setState({ questions: localQuestionsArray });
-      window.localStorage.setItem(
-        "questions",
-        JSON.stringify(localQuestionsArray)
-      );
-    }
+    //   window.localStorage.setItem(
+    //     "questions",
+    //     JSON.stringify(updatedLocalQuestionsArray)
+    //   );
+    // } else {
+    //   let { question_id, choice } = this.state;
+    //   let localQuestionsArray = [{ [question_id]: choice }];
+    //   this.setState({ questions: localQuestionsArray });
+    //   window.localStorage.setItem(
+    //     "questions",
+    //     JSON.stringify(localQuestionsArray)
+    //   );
+    // }
 
-    // route handling
+    // // route handling
     const questionNumber = this.props.match.params.questionNumber;
 
     if (questionNumber > 0 && questionNumber < 9) {
@@ -70,7 +86,7 @@ class Question extends React.Component {
   };
 
   handlePrevClick = e => {
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 0);
     const questionNumber = this.props.match.params.questionNumber;
 
     if (questionNumber > 1 && questionNumber <= 9) {
@@ -110,22 +126,31 @@ class Question extends React.Component {
                   </h2>
 
                   {questions.choices.map((choice, i) => {
+                    const selectedChoice = this.state.answers[
+                      this.props.match.params.questionNumber
+                    ];
                     return (
                       <div
                         key={`${choice}-${i}`}
                         className="Question_and_ans_section-Ans"
                       >
-                        <label className="radio-inline">
+                        <label htmlFor="myoption" className="radio-inline">
                           <span>{choice.id}</span>
                           &nbsp;&nbsp;
                           <input
+                            name="myoption"
                             type="radio"
                             className="inner-button"
-                            name="optradio"
+                            checked={selectedChoice && selectedChoice === i + 1}
                             onClick={e => {
-                              this.setState({
-                                choice: i + 1
-                              });
+                              const {
+                                questionNumber
+                              } = this.props.match.params;
+                              const answers = {
+                                ...this.state.answers,
+                                ...{ [questionNumber]: i + 1 }
+                              };
+                              this.setState({ answers });
                             }}
                           />
                           {choice.text}
@@ -147,7 +172,6 @@ class Question extends React.Component {
               <button
                 className="btn btn-primary Next-prev-btn"
                 onClick={this.handleNextClick}
-                disabled={!choice}
               >
                 Next Step
               </button>
